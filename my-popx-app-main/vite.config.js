@@ -8,6 +8,5 @@ export default defineConfig({
     tailwindcss(),
     react()
   ],
-  // Configured specifically for your Educase India Assessment repository
-  base: '/Educase_India_Assessment/', 
+  base: '/',
 })
