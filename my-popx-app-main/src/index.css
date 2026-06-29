@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+h1 {
+  /* This is crucial for positioning the pseudo-element relative to the h1 */
+  position: relative;
+  
+  /* This creates a new stacking context, so z-index: -1 works correctly */
+  isolation: isolate;
+  
+  /* Ensure the h1's own background is transparent so we can see the pseudo-element */
+  background-color: transparent !important;
+}
+
+h1::before {
+  /* Required to generate the pseudo-element */
+  content: '';
+  
+  /* Position it absolutely, relative to the h1 tag */
+  position: absolute;
+  
+  /* Set the background color you want */
+  background-color: white;
+  
+  /* Place the background behind the h1's text */
+  z-index: -1;
+  
+  /* --- Vertical Sizing --- */
+  /* Stretch the background from the bottom of the h1... */
+  bottom: 0;
+  /* ...all the way to the top of the viewport (and beyond) */
+  top: -100vh;
+  
+  /* --- Horizontal Sizing --- */
+  /* Make the background span the full width of the screen */
+  width: 100vw;
+  /* Center the pseudo-element horizontally relative to the h1 */
+  left: 50%;
+  /* Shift it left by half the viewport width to align it perfectly with the screen's edge */
+  transform: translateX(-50%);
+}
